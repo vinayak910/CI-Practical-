@@ -33,6 +33,22 @@ jobs:
       - name: run flake8 
         run:
           flake8 app.py
+  
+  testings:
+    runs-on: 'ubuntu-latest'
+
+    steps: 
+      - name: code checkout 
+        uses: actions/checkout
+      - name: setup python 
+        uses: actions/setup-python@v2
+        with:
+          python_version: '3.9'
+      - name: run unit test 
+        run: |
+          python -m unittest discover 
+
+        
 
 
 # this is the simple ci workflow to check linting errors 
